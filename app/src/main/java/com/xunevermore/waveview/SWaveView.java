@@ -76,19 +76,17 @@ public class SWaveView extends SurfaceView implements SurfaceHolder.Callback{
     public void start(){
 
 //        HandlerThread handlerThread = new HandlerThread("surcace_draw");
-        Looper looper = Looper.myLooper();
-        Log.i(TAG, "start: "+looper);
-        Handler handler = new Handler();
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
+//        Looper looper = Looper.myLooper();
+//        Log.i(TAG, "start: "+looper);
+//        Handler handler = new Handler();
+//        handler.post(new Runnable() {
+//            @Override
+//            public void run() {
                 valueAnimator = ValueAnimator.ofFloat(halfWaveLength*2, 0);
                 valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                     @Override
                     public void onAnimationUpdate(ValueAnimator animation) {
                         fraction = (float) animation.getAnimatedValue();
-
-
                         drawWave();
                     }
                 });
@@ -96,8 +94,9 @@ public class SWaveView extends SurfaceView implements SurfaceHolder.Callback{
                 valueAnimator.setInterpolator(new LinearInterpolator());
                 valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
                 valueAnimator.start();
-            }
-        });
+//            }
+//        });
+
 
     }
 
